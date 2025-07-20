@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品展示 - 碧青龙阁</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            margin-top: 0;
+            color: var(--mc-dark-green);
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .tag {
+            background-color: var(--mc-green);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-btn {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--mc-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="bqlg_logo.png" alt="碧青龙阁Logo">
+                <h1>碧青龙阁</h1>
+            </div>
+            <p>我的世界中国版开发者团队</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="index.html#about">关于我们</a></li>
+            <li><a href="projects.html">作品展示</a></li>
+            <li><a href="index.html#team">团队成员</a></li>
+            <li><a href="index.html#join">加入我们</a></li>
+            <li><a href="index.html#contact">联系我们</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section class="section">
+            <h2>我们的作品</h2>
+            <p>探索碧青龙阁为我的世界中国版创作的精彩内容</p>
+            
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="map">地图</button>
+                <button class="filter-btn" data-filter="mod">模组</button>
+                <button class="filter-btn" data-filter="skin">皮肤</button>
+                <button class="filter-btn" data-filter="material light and shadow">材质光影</button>
+                <button class="filter-btn" data-filter="service">网络游戏</button>
+            </div>
+            
+            <div class="project-gallery">
+                <div class="project-card" data-tags="map">
+                    <div class="project-image">
+                        <img src="project1.jpg" alt="故宫复原项目">
+                    </div>
+                    <div class="project-info">
+                        <h3>故宫复原项目</h3>
+                        <p>精确还原北京故宫建筑群，包含主要宫殿和景观，获得网易官方推荐。</p>
+                        <div class="project-tags">
+                            <span class="tag">地图</span>
+                            <span class="tag">古风</span>
+                            <span class="tag">建筑</span>
+                        </div>
+                        <div class="project-meta">
+                            <span>下载量: 120万+</span>
+                            <span>2022年</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-tags="mod rpg">
+                    <div class="project-image">
+                        <img src="project2.jpg" alt="山海经RPG">
+                    </div>
+                    <div class="project-info">
+                        <h3>山海经RPG模组</h3>
+                        <p>基于中国神话山海经的RPG模组，添加40+新生物和独特玩法系统。</p>
+                        <div class="project-tags">
+                            <span class="tag">模组</span>
+                            <span class="tag">RPG</span>
+                            <span class="tag">神话</span>
+                        </div>
+                        <div class="project-meta">
+                            <span>下载量: 85万+</span>
+                            <span>2021年</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-tags="server">
+                    <div class="project-image">
+                        <img src="project3.jpg" alt="城镇生存">
+                    </div>
+                    <div class="project-info">
+                        <h3>城镇生存玩法</h3>
+                        <p>多人合作城镇建设与生存玩法，包含经济系统和职业分工。</p>
+                        <div class="project-tags">
+                            <span class="tag">服务器玩法</span>
+                            <span class="tag">生存</span>
+                            <span class="tag">多人</span>
+                        </div>
+                        <div class="project-meta">
+                            <span>下载量: 65万+</span>
+                            <span>2023年</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-tags="map ancient">
+                    <div class="project-image">
+                        <img src="project4.jpg" alt="苏州园林">
+                    </div>
+                    <div class="project-info">
+                        <h3>苏州园林系列</h3>
+                        <p>还原拙政园、留园等经典苏州园林，展现中国传统园林艺术。</p>
+                        <div class="project-tags">
+                            <span class="tag">地图</span>
+                            <span class="tag">古风</span>
+                            <span class="tag">建筑</span>
+                        </div>
+                        <div class="project-meta">
+                            <span>下载量: 78万+</span>
+                            <span>2020年</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-tags="skin">
+                    <div class="project-image">
+                        <img src="project5.jpg" alt="汉服皮肤包">
+                    </div>
+                    <div class="project-info">
+                        <h3>汉服皮肤合集</h3>
+                        <p>包含30+不同朝代风格的汉服皮肤，细节精致，广受好评。</p>
+                        <div class="project-tags">
+                            <span class="tag">皮肤</span>
+                            <span class="tag">古风</span>
+                            <span class="tag">服饰</span>
+                        </div>
+                        <div class="project-meta">
+                            <span>下载量: 150万+</span>
+                            <span>2019年</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-tags="mod rpg">
+                    <div class="project-image">
+                        <img src="project6.jpg" alt="仙侠修真">
+                    </div>
+                    <div class="project-info">
+                        <h3>仙侠修真模组</h3>
+                        <p>融合修真小说元素的模组，包含境界系统、功法和法宝炼制。</p>
+                        <div class="project-tags">
+                            <span class="tag">模组</span>
+                            <span class="tag">RPG</span>
+                            <span class="tag">仙侠</span>
+                        </div>
+                        <div class="project-meta">
+                            <span>下载量: 95万+</span>
+                            <span>2022年</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">首页</a>
+                <a href="index.html#about">关于我们</a>
+                <a href="projects.html">作品展示</a>
+                <a href="index.html#team">团队成员</a>
+                <a href="index.html#join">加入我们</a>
+                <a href="index.html#contact">联系我们</a>
+                <a href="privacy.html">隐私政策</a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-weixin"></i></a>
+                <a href="#"><i class="fab fa-qq"></i></a>
+                <a href="#"><i class="fab fa-weibo"></i></a>
+                <a href="#"><i class="fab fa-bilibili"></i></a>
+            </div>
+            
+            <p>© 2023 碧青龙阁 - 我的世界中国版开发者团队. 保留所有权利。</p>
+            <p>与Mojang Studios、Microsoft和网易游戏无关。</p>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script>
+        // 筛选功能
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 更新活动按钮
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.dataset.filter;
+                const projects = document.querySelectorAll('.project-card');
+                
+                projects.forEach(project => {
+                    if (filter === 'all' || project.dataset.tags.includes(filter)) {
+                        project.style.display = 'block';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
